@@ -3,11 +3,11 @@ const express = require("express");
 const app = express();
 
 
-const url = `http://localhost:3000`
+const url = `http://localhost:5000`
 
 // LISTEN
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log(`Server listening at: ${url}`)
 })
 
@@ -17,7 +17,7 @@ app.use(express.json())
 
 app.all("/", (req, res) => {
     res.status(500);
-    res.send('<h1>RESTful API Assignment');
+    res.send('<h1>RESTful API Assignment</h1>');
 })
 
 // ROUTES
