@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const app = express();
 const url = 'http://localhost:5000'
 
@@ -12,7 +13,7 @@ app.listen(5000, () => {
 app.use(express.json())
 
 app.all("/", (req, res) => {
-    res.send('RESTful API Assignment')
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
 // ROUTES
