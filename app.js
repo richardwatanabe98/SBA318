@@ -3,15 +3,21 @@ const express = require("express");
 const app = express();
 
 
-const url = `http://localhost:3000/api`
+const url = `http://localhost:3000`
+
+// LISTEN
+
+app.listen(3000, () => {
+    console.log(`Server listening at: ${url}`)
+})
 
 // Middleware
 // let Express know what kind of data to expect
 app.use(express.json())
 
 app.all("/", (req, res) => {
-    res.status(403);
-    res.json({error: `Public API endpoints are available at: ${url}`})
+    res.status(500);
+    res.send('<h1>RESTful API Assignment');
 })
 
 // ROUTES
@@ -44,8 +50,3 @@ app.use((err, req, res, next) => {
 
 })
 
-// GO / LISTEN
-
-app.listen(3000, () => {
-    console.log(`Server listening at: ${url}`)
-})
