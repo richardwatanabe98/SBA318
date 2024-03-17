@@ -11,8 +11,8 @@ app.listen(5000, () => {
 })
 
 // Middleware
-app.use('users', userRouter)
-
+app.use('/users', userRouter)
+app.use(express.json())
 app.all("/", (req, res) => {
     console.log("Here")
     res.render("index", { text: "World"})
@@ -29,33 +29,6 @@ app.get('/users/new', (req, res) => {
 // SET view engine
 app.set('view engine', 'ejs')
 
-// ROUTES
-// Endpoint route
-// app.route('/name_of_your_endpoint')
-//     .all((req, res, next) => {
-//     })
 
-// GET Route
-//     .get((req, res, next) => {
 
-//     })
-
-// // POST route
-//     .post((req, res, next) => {
-
-//     })
-
-// // DELETE route
-//     .delete((req, res, next) => {
-
-//     })
-
-// Error handling
-
-// app.use((err, req, res, next) => {
-//     console.error(err.stack)
-//     res.status(404)
-//     res.json({error:`Resource not found. [US]`})
-
-// })
 
