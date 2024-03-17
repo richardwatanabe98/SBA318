@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const url = 'http://localhost:5000'
 
+
 // LISTEN
 
 app.listen(5000, () => {
@@ -10,11 +11,15 @@ app.listen(5000, () => {
 })
 
 // Middleware
-app.use(express.json())
+// app.use(express.json())
 
-app.all("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get("/", (req, res) => {
+    console.log("Here")
+    res.render("index")
 })
+
+// SET view engine
+app.set('view engine', 'ejs')
 
 // ROUTES
 // Endpoint route
